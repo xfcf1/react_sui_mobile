@@ -1,0 +1,30 @@
+{
+  "name": "react-sm",
+  "description": "Build mobile apps with simple HTML, CSS, and JS components.",
+  "version": "0.0.1",
+  "keywords": [
+    "css",
+    "fonts",
+    "ios",
+    "android",
+    "mobile",
+    "prototype",
+    "react"
+  ],
+  "homepage": "http://m.sui.taobao.org/",
+  "style": "dist/css/sm.css",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "license": "MIT",
+  "scripts": {
+  },
+  "devDependencies": {
+  },
+  "engines": {
+    "node": ">=0.10.1"
+  },
+  "dependencies": {
+  }
+}
