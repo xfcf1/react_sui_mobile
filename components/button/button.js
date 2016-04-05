@@ -2,14 +2,14 @@
  * Created by alex.
  */
 
-
-
 import React from 'react';
 
 export default class Button extends React.Component {
     render() {
+        const {className, children, ...others} = this.props;
+        const Component = this.props.href ? 'a' : 'button';
         return (
-            <button className="button">313</button>
+            <Component {...others} className={'button ' + className}>{children}</Component>
         )
     }
 };
