@@ -6,30 +6,24 @@ import React from 'react';
 
 export class Nav extends React.Component {
     render() {
-        const {type, className, children, ...others} = this.props;
+        const {onclick, data, type, className, children, ...others} = this.props;
+        let span = data.map(function(d, i){
+            let badge, active = '';
+            if(d.active){
+                active = ' active';
+            }
+            if(d.badge){
+                badge = <span className="badge">{d.badge}</span>;
+            }
+            return <a key={i} className={"tab-item" + active} href={d.href} onClick={d.click}>
+                <span className={"icon " + d.icon}></span>
+                <span className="tab-label">{d.text}</span>
+                {badge}
+                </a>
+        })
         return (
             <nav className={"bar bar-tab " + className}>
-                <a className="tab-item external active" href="#">
-                    <span className="icon icon-home"></span>
-                    <span className="tab-label">文案</span>
-                </a>
-                <a className="tab-item external" href="#">
-                    <span className="icon icon-me"></span>
-                    <span className="tab-label">文案</span>
-                    <span className="badge">2</span>
-                </a>
-                <a className="tab-item external" href="#">
-                    <span className="icon icon-star"></span>
-                    <span className="tab-label">文案</span>
-                </a>
-                <a className="tab-item external" href="#">
-                    <span className="icon icon-cart"></span>
-                    <span className="tab-label">文案</span>
-                </a>
-                <a className="tab-item external" href="#">
-                    <span className="icon icon-settings"></span>
-                    <span className="tab-label">文案</span>
-                </a>
+                {span}
             </nav>
         )
     }

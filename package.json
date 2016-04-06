@@ -1,7 +1,7 @@
 {
   "name": "react-sm",
   "description": "Build mobile apps with simple HTML, CSS, and JS components.",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "keywords": [
     "css",
     "fonts",
@@ -15,7 +15,7 @@
   "style": "dist/css/sm.css",
   "repository": {
     "type": "git",
-    "url": "https://github.com/xfcf1/react_sui_mobile"
+    "url": "git+https://github.com/xfcf1/react_sui_mobile.git"
   },
   "license": "MIT",
   "scripts": {},
@@ -27,7 +27,10 @@
   "readme": "###修改于淘宝sui mobile",
   "readmeFilename": "README.md",
   "gitHead": "84886ff63c31989796945c83d8458ea86f7476b0",
-  "_id": "react-sm@0.0.2",
-  "_shasum": "dede7f772d76ab72dda4dcfef40695feb7ab5561",
-  "_from": "react-sm@latest"
+  "_id": "react-sm@0.0.4",
+  "_shasum": "33c6a343e34c54c5082d20f4bbf9f82c1190dd4d",
+  "_from": "react-sm@latest",
+  "bugs": {
+    "url": "https://github.com/xfcf1/react_sui_mobile/issues"
+  }
 }

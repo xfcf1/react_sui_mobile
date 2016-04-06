@@ -6,93 +6,68 @@ import React from 'react';
 
 export class Form extends React.Component {
     render() {
-        const {type, className, children, ...others} = this.props;
+        const {data, type, className, children, ...others} = this.props;
+        let li = data.map(function(d, i){
+            let input;
+            switch (d.type){
+                case 'checkbox':
+                    input = <label className="label-switch">
+                            <input type="checkbox"
+                                   name = {d.name}
+                                   onChange = {d.change}
+                                   onClick = {d.click}
+                                   disabled = {d.disabled}
+                                   value = {d.value}
+                            />
+                            <div className="checkbox"></div>
+                        </label>
+                    break;
+                case 'select':
+                    let option = d.options.map(function(dd, i){
+                        return <option key={i} value={dd.value}>{dd.text}</option>
+                    })
+                    input = <select value={d.value}>
+                            <option>Male</option>
+                            <option>Female</option>
+                        </select>
+                    break;
+                case 'textarea':
+                    input = <textarea
+                        name = {d.name}
+                        placeholder = {d.placeholder}
+                        value = {d.value}
+                        onChange = {d.change}
+                        onClick = {d.click}
+                        disabled = {d.disabled}
+                    ></textarea>
+                    break;
+                default :
+                    input = <input
+                        name = {d.name}
+                        placeholder = {d.placeholder}
+                        value = {d.value}
+                        onChange = {d.change}
+                        onClick = {d.click}
+                        disabled = {d.disabled}
+                        type = {d.type}
+                    />
+            }
+            return <li key={i}>
+                <div className="item-content">
+                    <div className="item-media"><i className="icon icon-form-name"></i></div>
+                    <div className="item-inner">
+                        <div className="item-title label">{d.label}</div>
+                        <div className="item-input">
+                            {input}
+                        </div>
+                    </div>
+                </div>
+            </li>
+        })
         return (
             <div className="list-block">
                 <ul>
-                    <li>
-                        <div className="item-content">
-                            <div className="item-media"><i className="icon icon-form-name"></i></div>
-                            <div className="item-inner">
-                                <div className="item-title label">姓名</div>
-                                <div className="item-input">
-                                    <input type="text" placeholder="Your name"/>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div className="item-content">
-                            <div className="item-media"><i className="icon icon-form-email"></i></div>
-                            <div className="item-inner">
-                                <div className="item-title label">邮箱</div>
-                                <div className="item-input">
-                                    <input type="email" placeholder="E-mail"/>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div className="item-content">
-                            <div className="item-media"><i className="icon icon-form-password"></i></div>
-                            <div className="item-inner">
-                                <div className="item-title label">密码</div>
-                                <div className="item-input">
-                                    <input type="password" placeholder="Password" className=""/>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div className="item-content">
-                            <div className="item-media"><i className="icon icon-form-gender"></i></div>
-                            <div className="item-inner">
-                                <div className="item-title label">性别</div>
-                                <div className="item-input">
-                                    <select>
-                                        <option>Male</option>
-                                        <option>Female</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div className="item-content">
-                            <div className="item-media"><i className="icon icon-form-calendar"></i></div>
-                            <div className="item-inner">
-                                <div className="item-title label">生日</div>
-                                <div className="item-input">
-                                    <input type="date" placeholder="Birth day" value="2014-04-30"/>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div className="item-content">
-                            <div className="item-media"><i className="icon icon-form-toggle"></i></div>
-                            <div className="item-inner">
-                                <div className="item-title label">开关</div>
-                                <div className="item-input">
-                                    <label className="label-switch">
-                                        <input type="checkbox"/>
-                                            <div className="checkbox"></div>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li className="align-top">
-                        <div className="item-content">
-                            <div className="item-media"><i className="icon icon-form-comment"></i></div>
-                            <div className="item-inner">
-                                <div className="item-title label">文本域</div>
-                                <div className="item-input">
-                                    <textarea></textarea>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
+                    {li}
                 </ul>
             </div>
         )

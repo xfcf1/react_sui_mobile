@@ -6,15 +6,26 @@ import React from 'react';
 
 export class Tab extends React.Component {
     render() {
-        const {type, className, children, ...others} = this.props;
+        const {data, className, children, ...others} = this.props;
+        let span = data.map(function(d, i){
+            let active = '';
+            if(d.active){
+                active = ' active';
+            }
+            return <a key={i} href={d.href} className={"tab-link button" + active} onClick={d.click}>{d.text}</a>
+        })
         return (
             <div className="buttons-tab">
-                <a href="#tab1" className="tab-link active button">全部</a>
-                <a href="#tab2" className="tab-link button">待付款</a>
-                <a href="#tab3" className="tab-link button">待发货</a>
+                {span}
             </div>
         )
     }
 };
-Tab.propTypes = {};
-Tab.defaultProps = {};
+Tab.propTypes = {
+    data: React.PropTypes.array,
+    className: React.PropTypes.string
+};
+Tab.defaultProps = {
+    data: [],
+    className: ''
+};
