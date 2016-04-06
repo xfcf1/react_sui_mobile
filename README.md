@@ -4,6 +4,7 @@
 ```sh
 $ npm i react-sm --save
 ```
+![1](http://d.pcs.baidu.com/thumbnail/ee4db312208423cd4dbf50572c68f786?fid=755890565-250528-364392174404923&time=1459933200&rt=pr&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-SRcLFNE1R5tIGSa5ikivT4zcuRw%3d&expires=8h&chkbd=0&chkv=0&dp-logid=2243239183442968902&dp-callid=0&size=c1440_u900&quality=90)
 
 ####icon(http://m.sui.taobao.org/components/#icons)
 ```html
